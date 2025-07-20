@@ -1,0 +1,21 @@
+@use '../helpers/' as *;
+
+.soc1als {
+    display: flex;
+    &__list {
+        display: flex;
+        column-gap: rem(20);
+
+        @include laptop {
+            column-gap: rem(14);
+        }
+    }
+
+    &__item {
+        display: flex;
+    }
+
+    &__link {
+        color: var(--color-light);
+    }
+}

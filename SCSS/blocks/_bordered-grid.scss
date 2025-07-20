@@ -1,0 +1,79 @@
+@use '../helpers/' as *;
+
+.bordered-grid {
+    --columns: 1;
+    --itemPaddingY: #{fluid(80, 40)};
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    &--2-cols {
+        --columns: 2;
+        --itemPaddingX: #{rem(80)};
+
+         @include laptop {
+            --itemPaddingX: #{rem(50)};
+        }
+
+        @include mobile {
+            padding-block: rem(20);
+            --columns: 1;
+
+            .bordered-grid__item:not(:last-child) {
+                border-bottom: var(--border)
+            }
+        }
+
+        @include mobile-above {
+            .bordered-grid__item {
+            padding-block: var(--itemPaddingY);
+            &:nth-child(odd) {
+                padding-right: var(--itemPaddingX);
+                border-right: var(--border)
+            }
+
+            &:nth-child(even) {
+                @include full-vw-line(bottom, auto, 100%, 50%);
+                padding-left: var(--itemPaddingX);
+            }
+        }
+        }
+    }
+
+    &--3-cols {
+        --columns: 3;
+        --itemPaddingX: #{rem(50)};
+
+        @include laptop {
+            --itemPaddingX: #{rem(40)};
+        }
+
+        @include tablet-above {
+            .bordered-grid__item {
+            padding-block: var(--itemPaddingY);
+            &:nth-child(3n - 2),
+            &:nth-child(3n - 1) {
+                padding-right: var(--itemPaddingX);
+                border-right: var(--border);
+            }
+
+            &:nth-child(2) {
+                @include full-vw-line(bottom)
+            }
+
+            &:nth-child(3n - 1),
+            &:nth-child(3n) {
+                padding-left: var(--itemPaddingX);
+            }
+        }
+        }
+
+        @include tablet {
+            --columns: 1
+        }
+
+        .bordered-grid__item:not(:last-child) {
+            border-bottom: var(--border);
+        }
+    }
+}
