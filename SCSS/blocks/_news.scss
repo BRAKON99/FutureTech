@@ -5,6 +5,10 @@
     row-gap: rem(80);
     padding-block: fluid(80, 40);
 
+    @include laptop {
+        row-gap: rem(40);
+    }
+
     &__header {
         display: flex;
         justify-content: space-between;

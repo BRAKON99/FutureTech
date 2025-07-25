@@ -23,7 +23,13 @@
 
     &--yellow-arrow {
         &::after {
-            background-image: url(../../assets/icon/Icon-yellow.svg);
+            background-image: url('../assets/icon/Icon-yellow.svg');
+        }
+    }
+
+    &--gray-arrow-down {
+        &::after {
+            background-image: url('../assets/icon/arrow-down-gray.svg')
         }
     }
 }
