@@ -18,7 +18,9 @@
 @mixin flex-center($isInline: false) {
   @if $isInline {
     display: inline-flex;
-  } @else  {
+  }
+
+  @else {
     display: flex;
   }
 
@@ -74,7 +76,7 @@
     translate: $translate;
     #{$property}: 0;
     width: 99vw;
-    height: rem(1);
+    height: rem(0.1);
     background-color: var(--color-dark-15);
   }
 }

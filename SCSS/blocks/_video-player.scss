@@ -2,6 +2,7 @@
 
 .video-player {
     position: relative;
+
     &__video {
         border-radius: rem(12);
         object-fit: cover;
@@ -10,6 +11,11 @@
 
         @include laptop {
             border-radius: rem(10);
+        }
+
+        &--small {
+            height: fluid(290, 208);
+            width: 100%;
         }
     }
 
@@ -23,6 +29,11 @@
         padding: rem(30);
         transition-duration: var(--transition-duration);
 
+        &--center {
+            justify-content: center;
+            align-items: center;
+        }
+
         &:not(.is-active) {
             @include hide
         }
@@ -31,11 +42,9 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: linear-gradient(
-            180deg,
-            rgba(20, 20, 20, 0) 44.27%,
-            #141414 100%
-            );
+            background-image: linear-gradient(180deg,
+                    rgba(20, 20, 20, 0) 44.27%,
+                    #141414 100%);
         }
 
         * {

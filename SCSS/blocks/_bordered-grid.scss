@@ -11,7 +11,7 @@
         --columns: 2;
         --itemPaddingX: #{rem(80)};
 
-         @include laptop {
+        @include laptop {
             --itemPaddingX: #{rem(50)};
         }
 
@@ -26,17 +26,18 @@
 
         @include mobile-above {
             .bordered-grid__item {
-            padding-block: var(--itemPaddingY);
-            &:nth-child(odd) {
-                padding-right: var(--itemPaddingX);
-                border-right: var(--border)
-            }
+                padding-block: var(--itemPaddingY);
 
-            &:nth-child(even) {
-                @include full-vw-line(bottom, auto, 100%, 50%);
-                padding-left: var(--itemPaddingX);
+                &:nth-child(odd) {
+                    padding-right: var(--itemPaddingX);
+                    border-right: var(--border)
+                }
+
+                &:nth-child(even) {
+                    @include full-vw-line(bottom, auto, 100%, 50%);
+                    padding-left: var(--itemPaddingX);
+                }
             }
-        }
         }
     }
 
@@ -44,28 +45,42 @@
         --columns: 3;
         --itemPaddingX: #{rem(50)};
 
+        column-gap: calc(var(--itemPaddingX) * 2);
+
         @include laptop {
             --itemPaddingX: #{rem(40)};
         }
 
         @include tablet-above {
             .bordered-grid__item {
-            padding-block: var(--itemPaddingY);
-            &:nth-child(3n - 2),
-            &:nth-child(3n - 1) {
-                padding-right: var(--itemPaddingX);
-                border-right: var(--border);
-            }
+                position: relative;
+                padding-block: var(--itemPaddingY);
 
-            &:nth-child(2) {
-                @include full-vw-line(bottom)
-            }
+                &:nth-child(3n - 2),
+                &:nth-child(3n - 1) {
+                    // padding-right: var(--itemPaddingX);
+                    // border-right: var(--border);
 
-            &:nth-child(3n - 1),
-            &:nth-child(3n) {
-                padding-left: var(--itemPaddingX);
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: calc(100% + var(--itemPaddingX));
+                        width: 0.1rem;
+                        height: 100%;
+                        background-color: var(--color-dark-15);
+                    }
+                }
+
+                &:nth-child(2) {
+                    @include full-vw-line(bottom)
+                }
+
+                &:nth-child(3n - 1),
+                &:nth-child(3n) {
+                    // padding-left: var(--itemPaddingX);
+                }
             }
-        }
         }
 
         @include tablet {
