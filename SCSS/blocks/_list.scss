@@ -1,6 +1,8 @@
 @use '../helpers/' as *;
 
 .list {
+
+    &,
     &__item {
         border-bottom: var(--border);
     }

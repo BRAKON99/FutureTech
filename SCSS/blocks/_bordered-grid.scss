@@ -49,6 +49,7 @@
 
         @include laptop {
             --itemPaddingX: #{rem(40)};
+            --itemPaddingY: #{rem(40)};
         }
 
         @include tablet-above {
