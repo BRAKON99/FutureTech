@@ -1,0 +1,51 @@
+@use '../helpers/' as *;
+
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    column-gap: rem(10);
+
+    @include laptop {
+        column-gap: rem(6);
+    }
+
+    @include hover {
+        color: var(--color-accent);
+
+        .checkbox__input {
+            border-color: var(--color-accent);
+        }
+    }
+
+    &__input {
+        --size: #{rem(28)};
+        border: var(--border);
+        background-color: var(--color-dark-10);
+        margin: 0;
+        border-radius: rem(4);
+        appearance: none;
+
+        @include square(var(--size));
+        @include flex-center;
+
+        @include laptop {
+            --size: #{rem(24)};
+        }
+
+        &::after {
+            content: '✓';
+            color: var(--color-accent);
+            transition-duration: var(--transition-duration);
+        }
+
+        &:not(:checked) {
+            &::after {
+                @include hide;
+            }
+        }
+    }
+
+    &__label {
+        color: var(--color-light);
+    }
+}

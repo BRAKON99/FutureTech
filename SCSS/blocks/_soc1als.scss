@@ -2,6 +2,36 @@
 
 .soc1als {
     display: flex;
+
+    &--2-cols {
+        .soc1als {
+            &__list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                row-gap: rem(10);
+
+                @include laptop {
+                    column-gap: rem(10);
+                }
+            }
+
+            &__link {
+                @include flex-center;
+
+                width: 100%;
+                padding: 0 rem(25);
+                height: rem(60);
+                background-color: var(--color-dark-10);
+                border: var(--border);
+                border-radius: rem(6);
+
+                @include laptop {
+                    height: rem(48);
+                }
+            }
+        }
+    }
+
     &__list {
         display: flex;
         column-gap: rem(20);

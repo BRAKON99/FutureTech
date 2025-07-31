@@ -92,4 +92,47 @@
             border-bottom: var(--border);
         }
     }
+
+    &--4-cols {
+        --columns: 4;
+        --itemPaddingX: #{rem(50)};
+        padding-block: rem(50);
+
+        column-gap: calc(var(--itemPaddingX) * 2);
+
+        @include laptop {
+            --itemPaddingX: #{rem(30)};
+            padding-block: rem(40);
+        }
+
+        @include tablet-above {
+
+            .bordered-grid__item {
+
+                &:nth-child(4n - 3),
+                &:nth-child(4n - 2),
+                &:nth-child(4n - 1) {
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: calc(100% + var(--itemPaddingX));
+                        width: rem(1);
+                        height: 100%;
+                        background-color: var(--color-dark-15);
+                    }
+                }
+            }
+        }
+
+        @include tablet {
+            --columns: 2;
+        }
+
+        @include mobile {
+            --columns: 1;
+        }
+    }
 }
