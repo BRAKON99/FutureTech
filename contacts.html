@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js"></script>
     <script src="./scripts/main.js" type="module" defer></script>
+    <script src="./scripts/contact-form.js" defer></script>
 </head>
 
 <body>
@@ -154,41 +155,41 @@
                                 <div class="card__preview-extra"></div>
                             </div>
                             <div class="card__body">
-                                <form action="/" class="feedback-form">
+                                <form action="process_contact.php" method="POST" class="feedback-form" id="contactForm">
                                     <div class="feedback-form__cell field">
                                         <label for="firstName" class="field__label">First Name <span
                                                 class="field__requared-star" aria-hidden="true">*</span></label>
-                                        <input id="firstName" class="field__control" placeholder="Ivan" required>
+                                        <input id="firstName" name="firstName" class="field__control" placeholder="Ivan" required>
                                     </div>
                                     <div class="feedback-form__cell field">
                                         <label for="lastName" class="field__label">Last Name</label>
-                                        <input id="lastName" class="field__control" placeholder="Ivanov">
+                                        <input id="lastName" name="lastName" class="field__control" placeholder="Ivanov">
                                     </div>
                                     <div class="feedback-form__cell field">
                                         <label for="email" class="field__label">Email <span class="field__requared-star"
                                                 aria-hidden="true">*</span></label>
-                                        <input id="email" class="field__control" placeholder="example@email.com"
+                                        <input id="email" name="email" class="field__control" placeholder="example@email.com"
                                             required type="email">
                                     </div>
                                     <div class="feedback-form__cell field">
                                         <label for="phoneNumber" class="field__label">Phone Number</label>
                                         <div class="field__body">
                                             <div class="select">SELECT</div>
-                                            <input class="field__control" id="phoneNumber" placeholder="(999) 999-99-99"
+                                            <input class="field__control" id="phoneNumber" name="phoneNumber" placeholder="(999) 999-99-99"
                                                 data-js-input-mask="(000) 000-00-00">
                                         </div>
                                     </div>
                                     <div class="feedback-form__cell feedback-form__cell--wide field">
                                         <label for="message" class="field__label">Message <span
                                                 class="field__required-star" aria-hidden="true">*</span></label>
-                                        <textarea id="message" class="field__control"
+                                        <textarea id="message" name="message" class="field__control"
                                             placeholder="Hi! I have an idea..." required></textarea>
                                     </div>
                                     <div class="feedback-form__cell feedback-form__cell--wide">
                                         <div class="feedback-form__actions">
                                             <div class="feedback-form__agreement">
                                                 <label class="checkbox">
-                                                    <input type="checkbox" class="checkbox__input" required>
+                                                    <input type="checkbox" name="agreement" class="checkbox__input" required>
                                                     <span class="checkbox__label">I agree with Terms of Use and
                                                         Privacy Policy</span>
                                                 </label>
@@ -197,6 +198,7 @@
                                                 type="submit">Send</button>
                                         </div>
                                     </div>
+                                    <div id="formMessage" class="feedback-form__message" style="display: none;"></div>
                                 </form>
                             </div>
                         </div>

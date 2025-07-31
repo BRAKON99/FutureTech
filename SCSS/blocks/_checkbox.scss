@@ -48,4 +48,17 @@
     &__label {
         color: var(--color-light);
     }
+
+    &--error {
+        color: #dc3545;
+
+        .checkbox__input {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+        }
+
+        .checkbox__label {
+            color: #dc3545;
+        }
+    }
 }

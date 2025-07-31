@@ -2339,6 +2339,14 @@ li {
     min-height: 8.5625rem;
   }
 }
+.field__control--error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+.field__control--error:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
 
 .checkbox {
   display: inline-flex;
@@ -2396,6 +2404,16 @@ li {
 .checkbox__label {
   color: var(--color-light);
 }
+.checkbox--error {
+  color: #dc3545;
+}
+.checkbox--error .checkbox__input {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+.checkbox--error .checkbox__label {
+  color: #dc3545;
+}
 
 .feedback-form {
   display: grid;
@@ -2429,6 +2447,24 @@ li {
   .feedback-form__submit-button {
     min-width: 6.4375rem;
   }
+}
+.feedback-form__message {
+  grid-column: -1/1;
+  padding: 0.9375rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 1.25rem;
+}
+.feedback-form__message--success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.feedback-form__message--error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 .accordion__details[open] .accordion__title::after, .accordion__details[open] .accordion__title::before {
